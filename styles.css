@@ -1,0 +1,288 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 500px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #292421;
+}
+
+.input-group {
+    display: flex;
+    margin-bottom: 15px;
+}
+
+input[type="text"] {
+    flex: 1;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px 0 0 5px;
+}
+
+select {
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 0;
+    background: #fff;
+    color: #292421;
+}
+
+button {
+    padding: 15px;
+    background: #CA8E82;
+    color: white;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: #7A958F;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    padding: 15px;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.3s, opacity 0.3s;
+}
+
+li.completed {
+    text-decoration: line-through;
+    color: #888;
+}
+
+li button {
+    background: none;
+    border: none;
+    color: #CA8E82;
+    cursor: pointer;
+    margin-left: 5px;
+    transition: color 0.3s;
+}
+
+li button:hover {
+    color: #7A958F;
+}
+
+li .edit-button {
+    color: #292421;
+}
+
+li .edit-button:hover {
+    color: #7A958F;
+}
+
+#toggle-completed, #clear-completed, #mark-all-completed, #unmark-all-completed, #delete-all-tasks, #edit-all-tasks, #export-tasks, #duplicate-all-tasks {
+    margin-top: 15px;
+    background: #CA8E82;
+    transition: background 0.3s;
+    border-radius: 5px;
+    padding: 15px;
+    width: 100%;
+    text-align: center;
+}
+
+#toggle-completed:hover, #clear-completed:hover, #mark-all-completed:hover, #unmark-all-completed:hover, #delete-all-tasks:hover, #edit-all-tasks:hover, #export-tasks:hover, #duplicate-all-tasks:hover {
+    background: #7A958F;
+}
+
+.progress-bar {
+    width: 100%;
+    background: #e0e0e0;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+.progress {
+    height: 15px;
+    background: #CA8E82;
+    width: 0;
+    transition: width 0.3s;
+}
+
+#progress-text {
+    text-align: center;
+    margin-bottom: 15px;
+    font-weight: bold;
+    color: #292421;
+}
+
+.filter-group {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.filter-button {
+    flex: 1;
+    padding: 15px;
+    background: #CA8E82;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
+    border-radius: 5px;
+}
+
+.filter-button:not(:last-child) {
+    margin-right: 5px;
+}
+
+.filter-button:hover {
+    background: #7A958F;
+}
+
+.filter-button.active {
+    background: #292421;
+}
+
+.notification {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #4caf50;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#task-count {
+    text-align: center;
+    margin-top: 15px;
+    color: #292421;
+}
+
+@keyframes slideToTrash {
+    0% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(100px) scale(0);
+        opacity: 0;
+    }
+}
+
+@keyframes completeTask {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes addTask {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 100%;
+        padding: 20px;
+    }
+
+    input[type="text"], select, button {
+        padding: 10px;
+    }
+
+    li {
+        padding: 10px;
+    }
+
+    #toggle-completed, #clear-completed, #mark-all-completed, #unmark-all-completed, #delete-all-tasks, #edit-all-tasks, #export-tasks, #duplicate-all-tasks {
+        padding: 10px;
+    }
+
+    .progress {
+        height: 10px;
+    }
+
+    .filter-button {
+        padding: 10px;
+    }
+
+    .notification {
+        padding: 10px 20px;
+    }
+
+    #task-count {
+        margin-top: 10px;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .container {
+        width: 80%;
+        padding: 25px;
+    }
+
+    input[type="text"], select, button {
+        padding: 12px;
+    }
+
+    li {
+        padding: 12px;
+    }
+
+    #toggle-completed, #clear-completed, #mark-all-completed, #unmark-all-completed, #delete-all-tasks, #edit-all-tasks, #export-tasks, #duplicate-all-tasks {
+        padding: 12px;
+    }
+
+    .progress {
+        height: 12px;
+    }
+
+    .filter-button {
+        padding: 12px;
+    }
+
+    .notification {
+        padding: 12px 24px;
+    }
+
+    #task-count {
+        margin-top: 12px;
+    }
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Lista de Tarefas</h1>
+        <div class="input-group">
+            <input type="text" id="new-task" placeholder="Adicionar nova tarefa">
+            <select id="priority">
+                <option value="low">Baixa</option>
+                <option value="medium">Média</option>
+                <option value="high">Alta</option>
+            </select>
+            <button id="add-task"><i class="fas fa-plus"></i></button>
+        </div>
+        <div class="input-group">
+            <input type="text" id="search-task" placeholder="Pesquisar tarefas">
+            <select id="sort-tasks">
+                <option value="date">Data</option>
+                <option value="priority">Prioridade</option>
+            </select>
+        </div>
+        <div class="progress-bar">
+            <div class="progress"></div>
+        </div>
+        <div id="progress-text">0% concluído</div>
+        <div class="filter-group">
+            <button id="filter-all" class="filter-button active">Todas</button>
+            <button id="filter-active" class="filter-button">Ativas</button>
+            <button id="filter-completed" class="filter-button">Concluídas</button>
+        </div>
+        <ul id="task-list"></ul>
+        <button id="toggle-completed">Ocultar Tarefas Concluídas</button>
+        <button id="clear-completed">Limpar Tarefas Concluídas</button>
+        <button id="mark-all-completed">Marcar Todas como Concluídas</button>
+        <button id="unmark-all-completed">Desmarcar Todas como Concluídas</button>
+        <button id="delete-all-tasks">Excluir Todas as Tarefas</button>
+        <button id="edit-all-tasks">Editar Todas as Tarefas</button>
+        <button id="export-tasks">Exportar Tarefas</button>
+        <button id="duplicate-all-tasks">Duplicar Todas as Tarefas</button>
+        <input type="file" id="import-tasks" style="display: none;">
+        <label for="import-tasks" class="button">Importar Tarefas</label>
+        <div id="task-count">Total: 0 | Ativas: 0 | Concluídas: 0</div>
+    </div>
+    <div id="notification" class="notification">Parabéns! Você concluiu todas as tarefas!</div>
+    <div id="delete-notification" class="notification">Tarefa excluída com sucesso!</div>
+    <div id="edit-notification" class="notification">Tarefa editada com sucesso!</div>
+    <script src="script.js"></script>
+</body>
+</html>
